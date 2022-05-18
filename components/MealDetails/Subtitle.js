@@ -14,14 +14,14 @@ const styles=StyleSheet.create({
         marginHorizontal:12,
         paddingHorizontal:4,
         paddingVertical: 8,
-        borderBottomColor:"#edafaf",
+        borderBottomColor:"#690821",
         borderBottomWidth:2
     },
     subtitle:{
         fontFamily:"semi-bold",
         letterSpacing:1.5,
         fontSize:20,
-        color:"#edafaf",
+        color:"#690821",
         textAlign:"center"
     }
 

@@ -45,7 +45,9 @@ const styles = StyleSheet.create({
    },
    buttonText:{
     fontSize:20,
-    fontFamily:"semi-bold"
+    fontFamily:"semi-bold",
+    color:"#690821",
+    letterSpacing:1.1
    },
    buttonPressed:{
        opacity:0.5

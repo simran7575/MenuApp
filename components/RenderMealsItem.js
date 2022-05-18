@@ -19,7 +19,7 @@ const RenderMealsItem = ({id, title, imageUrl, duration, affordability, complexi
                     <Image source={{uri:imageUrl}} style={styles.image}/>
                     <Text style={styles.text}>{title}</Text>
                 </View>
-               <MealDetails duration={duration} affordability={affordability} complexity={complexity}/>
+               <MealDetails duration={duration} affordability={affordability} complexity={complexity} textStyle={{color:"#f5dada"}}/>
                 </View>
             </Pressable>
         </View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         shadowOffset:{'height':2, 'width':0},
         shadowOpacity:0.25,
         shadowRadius:8,
-        backgroundColor:"white",
+        backgroundColor:"#690821",
         overflow: Platform.OS == "android" ? "hidden" : "visible"
     },
     buttonClicked:{
@@ -52,7 +52,8 @@ const styles = StyleSheet.create({
         fontFamily:"normal",
         fontSize:18,
         margin:8,
-        textAlign:"center"
+        textAlign:"center",
+        color:"#f5dada"
     },
     innerContainer:{
         borderRadius:8,

@@ -36,7 +36,8 @@ const MealsOverview = ({ route , navigation}) => {
         ).title;
 
         navigation.setOptions({
-            title: mealTitle
+            title: mealTitle,
+            headerTitleStyle:{letterSpacing:1.5}
 
         });
     },[catId, navigation ]);

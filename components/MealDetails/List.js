@@ -12,7 +12,7 @@ function List({data}){
 const styles=StyleSheet.create({
     listContainer:{
         borderRadius:8,
-        backgroundColor:"#edafaf",
+        backgroundColor:"#690821",
         paddingHorizontal:24,
         paddingVertical:10,
         marginHorizontal:12,
@@ -22,7 +22,7 @@ const styles=StyleSheet.create({
         textAlign:"center",
         fontFamily:"walkway-oblique-ultrabold",
         fontSize:17,
-        color:"white",
+        color:"#f5dada",
         letterSpacing:1.5
     }
 })
