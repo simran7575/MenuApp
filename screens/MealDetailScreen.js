@@ -1,10 +1,14 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect , useContext} from 'react';
 import { View, Text, StyleSheet , Image, ScrollView} from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { MEALS } from '../data/dummy-data';
 import MealDetails from '../components/MealDetails';
 import Subtitle from '../components/MealDetails/Subtitle';
 import List from '../components/MealDetails/List';
 import IconButton from '../components/IconButton';
+import { FavouritesContext } from '../store/context/favourites-context';
+import { addFavourite, removeFavourite } from '../store/redux/favourites';
+
 
 
 
@@ -12,8 +16,23 @@ const MealDetailScreen = ({route, navigation}) => {
     const mealId = route.params.mealId;
     const selectedMeal = MEALS.find(meal => meal.id == mealId)
 
-    const pressedIconButtonHandler = () =>{
-        console.log("pressed");
+    const favouriteMealsCtx = useContext(FavouritesContext);
+    // favoriteMealIds = useSelector((state) => state.favouriteMeaks.ids);
+    // const dispatch = useDispatch();
+
+    const isFavourite = favouriteMealsCtx.ids.includes(mealId);
+    //const isFavourite = favouriteMealIds.includes(mealId);
+
+
+    const changeFavouriteStatusHandler = () =>{
+        if(isFavourite){
+            favouriteMealsCtx.removeFavourites(mealId);
+            //dispatch(removeFavourite({id: mealId}))
+        }
+        else{
+            favouriteMealsCtx.addFavourites(mealId);
+            // dispatch(addFavourite({id: mealId}))
+        }
     }
 
     useLayoutEffect(()=>{
@@ -21,15 +40,15 @@ const MealDetailScreen = ({route, navigation}) => {
             headerRight: () => {
                 return(
                    <IconButton 
-                   icon="star" 
+                   icon={isFavourite ? "star" : "star-outline"}
                    color="white" 
-                   onPress={pressedIconButtonHandler}/>
+                   onPress={changeFavouriteStatusHandler}/>
             )
         },
             title : selectedMeal.title
             
         });
-    },[navigation, selectedMeal]
+    },[navigation, changeFavouriteStatusHandler]
 
     )
 
@@ -61,7 +80,7 @@ const styles = StyleSheet.create({
         marginBottom:32
     },
     detailStyles:{
-        color:"white"
+        color:"#690821"
     },
     image:{
         width:"100%",
@@ -72,7 +91,7 @@ const styles = StyleSheet.create({
         fontSize:24,
         textAlign:"center",
         margin:8,
-        color:"white",
+        color:"#690821",
         letterSpacing:1
     },
     detailInnerContainer:{
